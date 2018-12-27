@@ -1,0 +1,92 @@
+<app-header></app-header>
+<div fxLayout="row" fxLayoutAlign="space-around center" style="margin-top:50px">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Registration</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form fxLayout="column" #registerForm="ngForm">
+        <table cellspacing="0">
+          <tbody>
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="User Name" [formControl]="userName" required name="userName">
+                  <mat-error *ngIf="userName.invalid"></mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input matInput type="tel" placeholder="Mobile Number" [formControl]="mobile" required name="mobile">
+                  <mat-error *ngIf="mobile.invalid"></mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input matInput type="text" placeholder="Email Id" [formControl]="email" required name="email">
+                  <mat-error *ngIf="email.invalid"></mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input matInput type="password" placeholder="Password" [formControl]="password" required name="password">
+                  <mat-error *ngIf="password.invalid"></mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input matInput type="password" placeholder="Confirm Password" [formControl]="confirmpassword"
+                    required name="confirmpassword">
+                  <mat-error *ngIf="confirmpassword.invalid"></mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="registration()" color="primary">Sign Up</button>
+    </mat-card-actions>
+  </mat-card>
+  <div class="headerDivider"></div>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="example-form">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Username" [(ngModel)]="loginusername" name="loginusername" required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Password" [(ngModel)]="loginpassword" type="password" name="loginpassword"
+                  required>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="login()" color="primary">Login</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<div style="margin-top:50px"></div>

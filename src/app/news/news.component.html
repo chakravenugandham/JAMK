@@ -1,0 +1,18 @@
+<mat-card class="example-category">
+  <mat-card-content>
+    <div fxLayout="row " fxLayoutAlign="space-around center">
+      <div fxLayout="column">
+        <youtube-player class="video" [videoId]="id" (ready)="savePlayer($event)" (change)="onStateChange($event)">
+        </youtube-player>
+      </div>
+      <div fxLayout="column">
+        <youtube-player class="video" [videoId]="id1" (ready)="savePlayer($event)" (change)="onStateChange($event)">
+        </youtube-player>
+      </div>
+      <div fxLayout="column">
+        <youtube-player class="video" [videoId]="id2" (ready)="savePlayer($event)" (change)="onStateChange($event)">
+        </youtube-player>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
