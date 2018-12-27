@@ -1,0 +1,271 @@
+<div fxLayout="column" fxLayoutAlign="space-around center">
+  <app-header></app-header>
+  <app-news></app-news>
+</div>
+<div fxLayout="row" fxLayoutAlign="space-between">
+  <div fxLayout="column" fxLayoutAlign="start start">
+    <app-advertisement></app-advertisement>
+  </div>
+  <div fxLayout="column" fxLayoutAlign="space-around center">
+    <div fxLayout="row">
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="State" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+              <img class="example-option-img" aria-hidden [src]="state.flag" height="25">
+              <span>{{state.name}}</span> |
+              <small>Population: {{state.population}}</small>
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="City" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let state of filteredCities | async" [value]="state.name">
+              <img class="example-option-img" aria-hidden [src]="state.flag" height="25">
+              <span>{{state.name}}</span> |
+              <small>Population: {{state.population}}</small>
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Search for restaurents...." aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let state of filteredSearch | async" [value]="state.name">
+              <img class="example-option-img" aria-hidden [src]="state.flag" height="25">
+              <span>{{state.name}}</span> |
+              <small>Population: {{state.population}}</small>
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+    </div>
+    <div fxLayout="row" class="radio">
+      <mat-radio-group>
+        <mat-radio-button value="online" checked>ONLINE</mat-radio-button>
+        <mat-radio-button value="offline">OFFLINE</mat-radio-button>
+        <mat-radio-button value="pointshub">POINTS HUB</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div fxLayout="row">
+      <mat-card class="example-card">
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+            <img src="./assets/KFC.jpg" height="150" width="150" alt="Photo of a chicken">
+            <div fxLayout="column">
+              <mat-card-title>KFC</mat-card-title>
+              <mat-card-subtitle>Biryani, Hyderabadi, North Indian </mat-card-subtitle>
+              <span>
+                Cost ₹300 for one<br />
+                Min ₹0 · Up to 45 min<br />
+                Accepts cash & online payments
+              </span>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="warn">Order Online</button>
+          <button mat-button color="warn">Save for Later</button>
+        </mat-card-actions>
+      </mat-card>
+
+      <mat-card class="example-card">
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+            <img src="./assets/yummychicken.jpg" height="150" width="150" alt="Photo of a chicken">
+            <div fxLayout="column">
+              <mat-card-title>kritunga</mat-card-title>
+              <mat-card-subtitle>Biryani, Hyderabadi, North Indian </mat-card-subtitle>
+              <span>
+                Cost ₹300 for one<br />
+                Min ₹0 · Up to 45 min<br />
+                Accepts cash & online payments
+              </span>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="warn">Order Online</button>
+          <button mat-button color="warn">Save for Later</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div fxLayout="row">
+      <mat-card class="example-card">
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+            <img src="./assets/roast.jpg" height="150" width="150" alt="Photo of a chicken">
+            <div fxLayout="column">
+              <mat-card-title> BAWARCHI</mat-card-title>
+              <mat-card-subtitle>Biryani, Hyderabadi, North Indian </mat-card-subtitle>
+              <span>
+                Cost ₹300 for one<br />
+                Min ₹0 · Up to 45 min<br />
+                Accepts cash & online payments
+              </span>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="warn">Order Online</button>
+          <button mat-button color="warn">Save for Later</button>
+        </mat-card-actions>
+      </mat-card>
+      <mat-card class="example-card">
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+            <img src="./assets/burger.jpg" height="150" width="150" alt="Photo of a chicken">
+            <div fxLayout="column">
+              <mat-card-title>MC DONALS</mat-card-title>
+              <mat-card-subtitle>Biryani, Hyderabadi, North Indian </mat-card-subtitle>
+              <span>
+                Cost ₹300 for one<br />
+                Min ₹0 · Up to 45 min<br />
+                Accepts cash & online payments
+              </span>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="warn">Order Online</button>
+          <button mat-button color="warn">Save for Later</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div fxLayout="row">
+      <mat-card class="example-card">
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+            <img src="./assets/KFC.jpg" height="150" width="150" alt="Photo of a chicken">
+            <div fxLayout="column">
+              <mat-card-title>KFC</mat-card-title>
+              <mat-card-subtitle>Biryani, Hyderabadi, North Indian </mat-card-subtitle>
+              <span>
+                Cost ₹300 for one<br />
+                Min ₹0 · Up to 45 min<br />
+                Accepts cash & online payments
+              </span>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="warn">Order Online</button>
+          <button mat-button color="warn">Save for Later</button>
+        </mat-card-actions>
+      </mat-card>
+      <mat-card class="example-card">
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+            <img src="./assets/yummychicken.jpg" height="150" width="150" alt="Photo of a chicken">
+            <div fxLayout="column">
+              <mat-card-title>kritunga</mat-card-title>
+              <mat-card-subtitle>Biryani, Hyderabadi, North Indian </mat-card-subtitle>
+              <span>
+                Cost ₹300 for one<br />
+                Min ₹0 · Up to 45 min<br />
+                Accepts cash & online payments
+              </span>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="warn">Order Online</button>
+          <button mat-button color="warn">Save for Later</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div fxLayout="row">
+      <mat-card class="example-card">
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+            <img src="./assets/roast.jpg" height="150" width="150" alt="Photo of a chicken">
+            <div fxLayout="column">
+              <mat-card-title> BAWARCHI</mat-card-title>
+              <mat-card-subtitle>Biryani, Hyderabadi, North Indian </mat-card-subtitle>
+              <span>
+                Cost ₹300 for one<br />
+                Min ₹0 · Up to 45 min<br />
+                Accepts cash & online payments
+              </span>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="warn">Order Online</button>
+          <button mat-button color="warn">Save for Later</button>
+        </mat-card-actions>
+      </mat-card>
+      <mat-card class="example-card">
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+            <img src="./assets/burger.jpg" height="150" width="150" alt="Photo of a chicken">
+            <div fxLayout="column">
+              <mat-card-title>MC DONALS</mat-card-title>
+              <mat-card-subtitle>Biryani, Hyderabadi, North Indian </mat-card-subtitle>
+              <span>
+                Cost ₹300 for one<br />
+                Min ₹0 · Up to 45 min<br />
+                Accepts cash & online payments
+              </span>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="warn">Order Online</button>
+          <button mat-button color="warn">Save for Later</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div fxLayout="row">
+      <app-videos></app-videos>
+    </div>
+    <div fxLayout="row">
+      <div fxLayout="column">
+        <h2>Quick Search</h2>
+        <mat-card-subtitle>Discover search by type of meal</mat-card-subtitle>
+        <mat-card class="example-category">
+          <mat-card-content>
+            <div fxLayout="row" fxLayoutAlign="space-around center">
+              <div fxLayout="column">
+                <img src="./assets/delivery.png" height="50" width="50" alt="Photo of a chicken">
+                <p>Delivery</p>
+              </div>
+              <div fxLayout="column">
+                <img src="./assets/breakfast.png" height="50" width="50" alt="Photo of a chicken">
+                <p>Break Fast</p>
+              </div>
+              <div fxLayout="column">
+                <img src="./assets/lunch.png" height="50" width="50" alt="Photo of a chicken">
+                <p>Lunch</p>
+              </div>
+              <div fxLayout="column">
+                <img src="./assets/dinner.jpg" height="50" width="50" alt="Photo of a chicken">
+                <p>Dinner</p>
+              </div>
+              <div fxLayout="column">
+                <img src="./assets/drinks.png" height="50" width="50" alt="Photo of a chicken">
+                <p>Drinks & NightLife</p>
+              </div>
+              <div fxLayout="column">
+                <img src="./assets/cafes.png" height="50" width="50" alt="Photo of a chicken">
+                <p>Cafes</p>
+              </div>
+              <div fxLayout="column">
+                <img src="./assets/pocket.jpg" height="50" width="50" alt="Photo of a chicken">
+                <p>Pocket-Friendly Delivery</p>
+              </div>
+              <div fxLayout="column">
+                <img src="./assets/luxurydining.png" height="50" width="50" alt="Photo of a chicken">
+                <p>Luxury Dinning</p>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="column" fxLayoutAlign="start end">
+    <app-advertisement></app-advertisement>
+  </div>
+</div>
