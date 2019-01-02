@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { YoutubePlayerModule } from 'ngx-youtube-player';
 import { AppRoutingModule } from './app-routing.module';
@@ -46,6 +47,7 @@ import { CommonHeaderComponent } from './common-header/common-header.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     MatInputModule,
     YoutubePlayerModule,
     AppRoutingModule,
