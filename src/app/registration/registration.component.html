@@ -5,29 +5,46 @@
       <mat-card-title>Registration</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form fxLayout="column" #registerForm="ngForm">
+      <form fxLayout="column"  #registerForm="ngForm">
         <table cellspacing="0">
           <tbody>
             <tr>
               <td>
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="User Name" [formControl]="userName" required name="userName">
-                  <mat-error *ngIf="userName.invalid"></mat-error>
+                  <input matInput placeholder="First Name" [(ngModel)]="registerData.firstname" ngModel #firstName="ngModel"
+                    required name="firstName">
+                  <mat-error *ngIf="firstName.invalid"></mat-error>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Last Name" [(ngModel)]="registerData.lastname" ngModel #lastName="ngModel"
+                    required name="lastName">
+                  <mat-error *ngIf="lastName.invalid"></mat-error>
                 </mat-form-field>
               </td>
             </tr>
             <tr>
               <td>
                 <mat-form-field class="example-full-width">
-                  <input matInput type="tel" placeholder="Mobile Number" [formControl]="mobile" required name="mobile">
+                  <input matInput type="tel" placeholder="Mobile Number" [(ngModel)]="registerData.usermobile" ngModel #mobile="ngModel"
+                    required name="mobile">
                   <mat-error *ngIf="mobile.invalid"></mat-error>
                 </mat-form-field>
               </td>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input matInput type="tel" placeholder="Alternative Mobile Number" ngModel [(ngModel)]="registerData.altermobile"
+                    #altmobile="ngModel" required name="altmobile">
+                  <mat-error *ngIf="altmobile.invalid"></mat-error>
+                </mat-form-field>
+              </td>
             </tr>
             <tr>
               <td>
                 <mat-form-field class="example-full-width">
-                  <input matInput type="text" placeholder="Email Id" [formControl]="email" required name="email">
+                  <input matInput type="text" placeholder="Email Id" #email="ngModel" ngModel [(ngModel)]="registerData.useremail"
+                    required name="email">
                   <mat-error *ngIf="email.invalid"></mat-error>
                 </mat-form-field>
               </td>
@@ -35,7 +52,8 @@
             <tr>
               <td>
                 <mat-form-field class="example-full-width">
-                  <input matInput type="password" placeholder="Password" [formControl]="password" required name="password">
+                  <input matInput type="password" placeholder="Password" #password="ngModel" ngModel [(ngModel)]="registerData.userpassword"
+                    required name="password">
                   <mat-error *ngIf="password.invalid"></mat-error>
                 </mat-form-field>
               </td>
@@ -43,9 +61,18 @@
             <tr>
               <td>
                 <mat-form-field class="example-full-width">
-                  <input matInput type="password" placeholder="Confirm Password" [formControl]="confirmpassword"
-                    required name="confirmpassword">
+                  <input matInput type="password" placeholder="Confirm Password" ngModel #confirmpassword="ngModel" required
+                    name="confirmpassword">
                   <mat-error *ngIf="confirmpassword.invalid"></mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input matInput type="text" placeholder="Address" ngModel [(ngModel)]="registerData.address" #address="ngModel"
+                    required name="address">
+                  <mat-error *ngIf="address.invalid"></mat-error>
                 </mat-form-field>
               </td>
             </tr>
@@ -55,10 +82,10 @@
 
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button (click)="registration()" color="primary">Sign Up</button>
+      <button mat-raised-button (click)="confirm(registerData)" color="primary">Sign Up</button>
     </mat-card-actions>
   </mat-card>
-  <div class="headerDivider"></div>
+  <!-- <div class="headerDivider"></div> -->
   <mat-card class="example-card">
     <mat-card-header>
       <mat-card-title>Login</mat-card-title>

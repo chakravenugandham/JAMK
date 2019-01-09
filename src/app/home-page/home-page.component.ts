@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { AppService } from '../app.service';
+
 
 export interface State {
   flag: string;
@@ -16,8 +18,10 @@ export interface State {
   styleUrls: ['./home-page.component.scss']
 })
 
-export class HomePageComponent {
-
+export class HomePageComponent implements OnInit {
+  restaurentsData: any = [];
+  restaurentsDetails: any;
+  onlinePayment: any;
   stateCtrl = new FormControl();
   filteredStates: Observable<State[]>;
   filteredCities: Observable<State[]>;
@@ -51,7 +55,7 @@ export class HomePageComponent {
   ];
 
 
-  constructor() {
+  constructor(public appService: AppService) {
     this.filteredStates = this.stateCtrl.valueChanges
       .pipe(
         startWith(''),
@@ -61,7 +65,89 @@ export class HomePageComponent {
 
   private _filterStates(value: string): State[] {
     const filterValue = value.toLowerCase();
-
     return this.states.filter(state => state.name.toLowerCase().indexOf(filterValue) === 0);
+  }
+  restaurents() {
+    this.appService.url = "online-restraraunts";
+    var token = this.appService.getToken();
+    this.appService.getService(token).subscribe(res => {
+      this.restaurentsDetails = res;
+      this.restaurentsData = this.restaurentsDetails.restaraunt_settings;
+      this.restaurentsData.forEach(ele => {
+        if (ele.onlinepayment_accept == 'yes') {
+          this.onlinePayment = true;
+        }
+      })
+    })
+
+  }
+  restaurentId(d) {
+    console.log(d)
+    this.appService.url = "online-restarauntdetails/" + d;
+    var token = this.appService.getToken();
+    this.appService.getService(token).subscribe(res => {
+      console.log(res)
+    });
+  }
+  ngOnInit() {
+    this.restaurents();
+    this.restaurentsDetails = {
+      code: 200,
+      description: "Getting Restaraunt Settings",
+      message: "success"
+      ,
+      record_count: 1,
+      restaraunt_settings: []
+    };
+    this.restaurentsData = [{
+      banner: "http://broadenblue.com/projects/jamk/uploads/restaraunts/shah_5c2a2f2acd23c.jpg",
+      cod_accept: "yes",
+      expected_deliver_time: "30 mins",
+      online_status: "online",
+      onlinepayment_accept: "yes",
+      order_min_price: "500",
+      restaraunt_name: "Shah Ghouse Cafe & Restaurant",
+      restaurantidref: "1"
+    },
+       /*  {
+          banner: "http://broadenblue.com/projects/jamk/uploads/restaraunts/shah_5c2a2f2acd23c.jpg",
+          cod_accept: "yes",
+          expected_deliver_time: "30 mins",
+          online_status: "online",
+          onlinepayment_accept: "yes",
+          order_min_price: "500",
+          restaraunt_name: "Shah Ghouse Cafe & Restaurant",
+          restaurantidref: "1"
+        },
+        {
+          banner: "http://broadenblue.com/projects/jamk/uploads/restaraunts/shah_5c2a2f2acd23c.jpg",
+          cod_accept: "yes",
+          expected_deliver_time: "30 mins",
+          online_status: "online",
+          onlinepayment_accept: "yes",
+          order_min_price: "500",
+          restaraunt_name: "Shah Ghouse Cafe & Restaurant",
+          restaurantidref: "1"
+        },
+        {
+          banner: "http://broadenblue.com/projects/jamk/uploads/restaraunts/shah_5c2a2f2acd23c.jpg",
+          cod_accept: "yes",
+          expected_deliver_time: "30 mins",
+          online_status: "online",
+          onlinepayment_accept: "yes",
+          order_min_price: "500",
+          restaraunt_name: "Shah Ghouse Cafe & Restaurant",
+          restaurantidref: "1"
+        },
+        {
+          banner: "http://broadenblue.com/projects/jamk/uploads/restaraunts/shah_5c2a2f2acd23c.jpg",
+          cod_accept: "yes",
+          expected_deliver_time: "30 mins",
+          online_status: "online",
+          onlinepayment_accept: "yes",
+          order_min_price: "500",
+          restaraunt_name: "Shah Ghouse Cafe & Restaurant",
+          restaurantidref: "1" 
+    } */]
   }
 }

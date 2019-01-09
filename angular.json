@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "FoodApp": {
+    "oathApp": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/FoodApp",
+            "outputPath": "dist/oathApp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -61,18 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "FoodApp:build"
+            "browserTarget": "oathApp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "FoodApp:build:production"
+              "browserTarget": "oathApp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "FoodApp:build"
+            "browserTarget": "oathApp:build"
           }
         },
         "test": {
@@ -106,7 +106,7 @@
         }
       }
     },
-    "FoodApp-e2e": {
+    "oathApp-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -115,11 +115,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "FoodApp:serve"
+            "devServerTarget": "oathApp:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "FoodApp:serve:production"
+              "devServerTarget": "oathApp:serve:production"
             }
           }
         },
@@ -135,5 +135,5 @@
       }
     }
   },
-  "defaultProject": "FoodApp"
+  "defaultProject": "oathApp"
 }
