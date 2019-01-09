@@ -30,7 +30,8 @@
           </mat-autocomplete>
         </mat-form-field>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Search for restaurents...." aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+          <input matInput placeholder="Search for restaurents...." aria-label="State" [matAutocomplete]="auto"
+            [formControl]="stateCtrl">
           <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let state of filteredSearch | async" [value]="state.name">
               <img class="example-option-img" aria-hidden [src]="state.flag" height="25">
@@ -48,174 +49,31 @@
         <mat-radio-button value="pointshub">POINTS HUB</mat-radio-button>
       </mat-radio-group>
     </div>
-    <div fxLayout="row">
-      <mat-card class="example-card">
-        <mat-card-content>
-          <div fxLayout="row" fxLayoutAlign="space-around center">
-            <img src="./assets/KFC.jpg" height="150" width="150" alt="Photo of a chicken">
-            <div fxLayout="column">
-              <mat-card-title>KFC</mat-card-title>
-              <mat-card-subtitle>Biryani, Hyderabadi, North Indian </mat-card-subtitle>
-              <span>
-                Cost ₹300 for one<br />
-                Min ₹0 · Up to 45 min<br />
-                Accepts cash & online payments
-              </span>
+    <div class="container" fxLayoutWrap>
+      <div *ngFor="let restaurentsData of restaurentsData">
+        <mat-card class="example-card">
+          <mat-card-content>
+            <div fxLayout="row" fxLayoutAlign="space-around center">
+              <img src="{{restaurentsData.banner}}" height="150" width="150" alt="Photo of a chicken">
+              <div fxLayout="column">
+                <mat-card-title>{{restaurentsData.restaraunt_name}}</mat-card-title>
+                <mat-card-subtitle>Biryani, Hyderabadi, North Indian </mat-card-subtitle>
+                <span>
+                  Cost ₹{{restaurentsData.order_min_price}} for one<br />
+                  Min ₹{{restaurentsData.order_min_price}} · Up to {{restaurentsData.expected_deliver_time}}<br />
+                  <span *ngIf="onlinePayment">
+                    Accepts cash & online payments
+                  </span>
+                </span>
+              </div>
             </div>
-          </div>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button color="warn">Order Online</button>
-          <button mat-button color="warn">Save for Later</button>
-        </mat-card-actions>
-      </mat-card>
-
-      <mat-card class="example-card">
-        <mat-card-content>
-          <div fxLayout="row" fxLayoutAlign="space-around center">
-            <img src="./assets/yummychicken.jpg" height="150" width="150" alt="Photo of a chicken">
-            <div fxLayout="column">
-              <mat-card-title>kritunga</mat-card-title>
-              <mat-card-subtitle>Biryani, Hyderabadi, North Indian </mat-card-subtitle>
-              <span>
-                Cost ₹300 for one<br />
-                Min ₹0 · Up to 45 min<br />
-                Accepts cash & online payments
-              </span>
-            </div>
-          </div>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button color="warn">Order Online</button>
-          <button mat-button color="warn">Save for Later</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-    <div fxLayout="row">
-      <mat-card class="example-card">
-        <mat-card-content>
-          <div fxLayout="row" fxLayoutAlign="space-around center">
-            <img src="./assets/roast.jpg" height="150" width="150" alt="Photo of a chicken">
-            <div fxLayout="column">
-              <mat-card-title> BAWARCHI</mat-card-title>
-              <mat-card-subtitle>Biryani, Hyderabadi, North Indian </mat-card-subtitle>
-              <span>
-                Cost ₹300 for one<br />
-                Min ₹0 · Up to 45 min<br />
-                Accepts cash & online payments
-              </span>
-            </div>
-          </div>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button color="warn">Order Online</button>
-          <button mat-button color="warn">Save for Later</button>
-        </mat-card-actions>
-      </mat-card>
-      <mat-card class="example-card">
-        <mat-card-content>
-          <div fxLayout="row" fxLayoutAlign="space-around center">
-            <img src="./assets/burger.jpg" height="150" width="150" alt="Photo of a chicken">
-            <div fxLayout="column">
-              <mat-card-title>MC DONALS</mat-card-title>
-              <mat-card-subtitle>Biryani, Hyderabadi, North Indian </mat-card-subtitle>
-              <span>
-                Cost ₹300 for one<br />
-                Min ₹0 · Up to 45 min<br />
-                Accepts cash & online payments
-              </span>
-            </div>
-          </div>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button color="warn">Order Online</button>
-          <button mat-button color="warn">Save for Later</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-    <div fxLayout="row">
-      <mat-card class="example-card">
-        <mat-card-content>
-          <div fxLayout="row" fxLayoutAlign="space-around center">
-            <img src="./assets/KFC.jpg" height="150" width="150" alt="Photo of a chicken">
-            <div fxLayout="column">
-              <mat-card-title>KFC</mat-card-title>
-              <mat-card-subtitle>Biryani, Hyderabadi, North Indian </mat-card-subtitle>
-              <span>
-                Cost ₹300 for one<br />
-                Min ₹0 · Up to 45 min<br />
-                Accepts cash & online payments
-              </span>
-            </div>
-          </div>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button color="warn">Order Online</button>
-          <button mat-button color="warn">Save for Later</button>
-        </mat-card-actions>
-      </mat-card>
-      <mat-card class="example-card">
-        <mat-card-content>
-          <div fxLayout="row" fxLayoutAlign="space-around center">
-            <img src="./assets/yummychicken.jpg" height="150" width="150" alt="Photo of a chicken">
-            <div fxLayout="column">
-              <mat-card-title>kritunga</mat-card-title>
-              <mat-card-subtitle>Biryani, Hyderabadi, North Indian </mat-card-subtitle>
-              <span>
-                Cost ₹300 for one<br />
-                Min ₹0 · Up to 45 min<br />
-                Accepts cash & online payments
-              </span>
-            </div>
-          </div>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button color="warn">Order Online</button>
-          <button mat-button color="warn">Save for Later</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-    <div fxLayout="row">
-      <mat-card class="example-card">
-        <mat-card-content>
-          <div fxLayout="row" fxLayoutAlign="space-around center">
-            <img src="./assets/roast.jpg" height="150" width="150" alt="Photo of a chicken">
-            <div fxLayout="column">
-              <mat-card-title> BAWARCHI</mat-card-title>
-              <mat-card-subtitle>Biryani, Hyderabadi, North Indian </mat-card-subtitle>
-              <span>
-                Cost ₹300 for one<br />
-                Min ₹0 · Up to 45 min<br />
-                Accepts cash & online payments
-              </span>
-            </div>
-          </div>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button color="warn">Order Online</button>
-          <button mat-button color="warn">Save for Later</button>
-        </mat-card-actions>
-      </mat-card>
-      <mat-card class="example-card">
-        <mat-card-content>
-          <div fxLayout="row" fxLayoutAlign="space-around center">
-            <img src="./assets/burger.jpg" height="150" width="150" alt="Photo of a chicken">
-            <div fxLayout="column">
-              <mat-card-title>MC DONALS</mat-card-title>
-              <mat-card-subtitle>Biryani, Hyderabadi, North Indian </mat-card-subtitle>
-              <span>
-                Cost ₹300 for one<br />
-                Min ₹0 · Up to 45 min<br />
-                Accepts cash & online payments
-              </span>
-            </div>
-          </div>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button color="warn">Order Online</button>
-          <button mat-button color="warn">Save for Later</button>
-        </mat-card-actions>
-      </mat-card>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button color="warn" (click)="restaurentId(restaurentsData.restaurantidref)">Order {{restaurentsData.online_status}}</button>
+            <button mat-button color="warn">Save for Later</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
     </div>
     <div fxLayout="row">
       <app-videos></app-videos>

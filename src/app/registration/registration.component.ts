@@ -25,8 +25,6 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {
     this.registerData = { "firstname": "venu", "lastname": "gandham", "useremail": "venugandham6@gmail.com", "usermobile": "8688941771", "userpassword": "123123", "app": "web", "altermobile": "8688941773", "address": "this is address" };
-
-
   }
 
   confirm(data) {
@@ -39,6 +37,7 @@ export class RegistrationComponent implements OnInit {
       console.log(error)
     });
   }
+
 }
 
 
