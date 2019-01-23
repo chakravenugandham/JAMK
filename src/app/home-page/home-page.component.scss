@@ -2,14 +2,27 @@ a {
     text-decoration: none !important;
     margin-top: 8px;
 }
- .example-card {
+/*  .example-card {
     width: 400px;
     margin: 5px;
-} 
+}  */
+.card-deck-container {
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+    border-radius: 2px;
+    padding: 10px 10px 30px;
+    margin: 5px;
+    background-color:red;
+  }
+  
+   .card-item {
+    padding: 3px 3px 3px 3px;
+  } /* 
 .container {
     background: lightyellow;
     width: 900px;
-  }
+  } */
   
 img{
     border-radius: 50%;

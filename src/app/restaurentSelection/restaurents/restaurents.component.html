@@ -1,0 +1,23 @@
+<mat-card class="example-card">
+  <mat-card-content>
+    <div fxLayoutAlign="space-around center">
+      <img src="{{restaurentsData.banner}}" height="150" width="150" alt="Photo of a chicken">
+      <div fxLayout="column">
+        <mat-card-title>{{restaurentsData.restaraunt_name}}</mat-card-title>
+        <mat-card-subtitle>Biryani, Hyderabadi, North Indian </mat-card-subtitle>
+        <span>
+          Cost ₹{{restaurentsData.order_min_price}} for one<br />
+          Min ₹{{restaurentsData.order_min_price}} · Up to {{restaurentsData.expected_deliver_time}}<br />
+          <span *ngIf="onlinePayment">
+            Accepts cash & online payments
+          </span>
+        </span>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions *ngIf="actions">
+    <button mat-button color="warn" (click)="restaurentId(restaurentsData.restaurantidref)">Order
+      {{restaurentsData.online_status}}</button>
+    <button mat-button color="warn">Save for Later</button>
+  </mat-card-actions>
+</mat-card>

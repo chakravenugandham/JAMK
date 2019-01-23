@@ -1,5 +1,5 @@
+<app-header></app-header>
 <div fxLayout="column" fxLayoutAlign="space-around center">
-  <app-header></app-header>
   <app-news></app-news>
 </div>
 <div fxLayout="row" fxLayoutAlign="space-between">
@@ -49,30 +49,9 @@
         <mat-radio-button value="pointshub">POINTS HUB</mat-radio-button>
       </mat-radio-group>
     </div>
-    <div class="container" fxLayoutWrap>
-      <div *ngFor="let restaurentsData of restaurentsData">
-        <mat-card class="example-card">
-          <mat-card-content>
-            <div fxLayout="row" fxLayoutAlign="space-around center">
-              <img src="{{restaurentsData.banner}}" height="150" width="150" alt="Photo of a chicken">
-              <div fxLayout="column">
-                <mat-card-title>{{restaurentsData.restaraunt_name}}</mat-card-title>
-                <mat-card-subtitle>Biryani, Hyderabadi, North Indian </mat-card-subtitle>
-                <span>
-                  Cost ₹{{restaurentsData.order_min_price}} for one<br />
-                  Min ₹{{restaurentsData.order_min_price}} · Up to {{restaurentsData.expected_deliver_time}}<br />
-                  <span *ngIf="onlinePayment">
-                    Accepts cash & online payments
-                  </span>
-                </span>
-              </div>
-            </div>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-button color="warn" (click)="restaurentId(restaurentsData.restaurantidref)">Order {{restaurentsData.online_status}}</button>
-            <button mat-button color="warn">Save for Later</button>
-          </mat-card-actions>
-        </mat-card>
+    <div class='md-padding' layout="row" layout-wrap>
+      <div flex-sm="25" flex-gt-sm="30" flex="100" *ngFor="let restaurentsData of restaurentsData">
+        <app-restaurents [ngStyle]="{'width':'20' + 'px'}" [restaurentsData]="restaurentsData"></app-restaurents>
       </div>
     </div>
     <div fxLayout="row">
