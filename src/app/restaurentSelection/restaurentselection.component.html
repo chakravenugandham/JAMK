@@ -1,0 +1,9 @@
+<app-header2></app-header2>
+<div fxLayout="row" style="margin-top: 20px">
+    <div fxLayout="column">
+        <app-placeorder class="item" (onRestaurentPicked)=getRestaurentList($event)></app-placeorder>
+    </div>
+    <div fxLayout="column">
+        <app-orderlist [toOrderList]="toOrderList"></app-orderlist>
+    </div>
+</div>

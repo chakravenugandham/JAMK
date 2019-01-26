@@ -32,6 +32,14 @@ import {
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { CommonHeaderComponent } from './common-header/common-header.component';
+import { RestaurentsComponent } from './restaurentSelection/restaurents/restaurents.component';
+import { PlaceorderComponent } from './restaurentSelection/placeorder/placeorder.component';
+import { OrderlistComponent } from './restaurentSelection/orderlist/orderlist.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { TermsandconditionsComponent } from './termsandconditions/termsandconditions.component';
+import { Header2Component } from './header2/header2.component';
+import { RestaurentselectionComponent } from './restaurentselection/restaurentselection.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +51,15 @@ import { CommonHeaderComponent } from './common-header/common-header.component';
     AdvertisementComponent,
     FooterComponent,
     RegistrationComponent,
-    CommonHeaderComponent
+    CommonHeaderComponent,
+    RestaurentsComponent,
+    PlaceorderComponent,
+    OrderlistComponent,
+    AboutusComponent,
+    ContactusComponent,
+    TermsandconditionsComponent,
+    Header2Component,
+    RestaurentselectionComponent
   ],
   imports: [
     BrowserModule,

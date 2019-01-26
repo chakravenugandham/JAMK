@@ -1,0 +1,41 @@
+<!-- <app-header></app-header> -->
+<div fxLayout="row">
+  <div fxLayout="column">
+    <div class="venu">
+      <app-restaurents [restaurentsData]="restaurentData"></app-restaurents>
+    </div>
+    <div *ngFor="let menu of menuItems">
+      <div *ngIf="menu.itemData">
+        <h3>{{menu.menu_title}}</h3>
+        <div *ngFor="let item of menu.items">
+          <mat-card class="example-card">
+            <mat-card-content>
+              <div fxLayout="column">
+                <mat-card-title>{{item.item}}</mat-card-title>
+                <mat-card-subtitle>&#x20b9; {{item.selling_price}}</mat-card-subtitle>
+                <span>
+                  Item Contains{{item.itemcontains}}<br />
+                </span>
+              </div>
+            </mat-card-content>
+            <mat-card-actions class="button">
+              <button *ngIf="!item.toggle" mat-stroked-button color="primary" (click)="addButtonClick(item)">Add</button>
+              <mat-button-toggle-group class="togglebutton" *ngIf="item.toggle" (click)="venu(group.value)" [(ngModel)]="selectedValue"
+                #group="matButtonToggleGroup">
+                <mat-button-toggle [disabled]="disable" value="remove">
+                  <mat-icon>remove</mat-icon>
+                </mat-button-toggle>
+                <mat-button-toggle [disabled]="true" value="">
+                  {{count}}
+                </mat-button-toggle>
+                <mat-button-toggle value="add">
+                  <mat-icon>add</mat-icon>
+                </mat-button-toggle>
+              </mat-button-toggle-group>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

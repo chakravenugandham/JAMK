@@ -109,7 +109,7 @@ export class HomePageComponent implements OnInit {
       restaraunt_name: "Shah Ghouse Cafe & Restaurant",
       restaurantidref: "1"
     },
-       /*  {
+         /* {
           banner: "http://broadenblue.com/projects/jamk/uploads/restaraunts/shah_5c2a2f2acd23c.jpg",
           cod_accept: "yes",
           expected_deliver_time: "30 mins",
@@ -148,6 +148,6 @@ export class HomePageComponent implements OnInit {
           order_min_price: "500",
           restaraunt_name: "Shah Ghouse Cafe & Restaurant",
           restaurantidref: "1" 
-    } */]
+    }  */]
   }
 }
